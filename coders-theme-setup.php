@@ -96,7 +96,9 @@ final class CodersThemeBase extends CodersTheme {
 
         return parent::themeLayout();
     }
-
+    /**
+     * 
+     */
     protected final function renderFooterWidgetsBlock(){
         $areas = $this->footer_widgets;
         for($i = 0 ; $i < $areas ; $i++){
