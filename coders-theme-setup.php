@@ -18,9 +18,10 @@ final class CodersThemeBase extends CodersTheme {
         //theme core elements
         $this->themeSupport('post-thumbnails', array('post'))
                 ->themeSupport('custom-logo', $this->logoSetup())
-                ->menu('top-menu', __('Top Menu', 'coder_themes'))
-                ->menu('main-menu', __('Main Menu', 'coder_themes'))
-                ->menu('bottom-menu', __('Bottom Menu', 'coder_themes'))
+                ->menu('top', __('Top Menu', 'coder_themes'))
+                ->menu('main', __('Main Menu', 'coder_themes'))
+                ->menu('legal', __('Legal Menu', 'coder_themes'))
+                ->menu('social', __('Social Menu', 'coder_themes'))
                 ->style('google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
                 //->style('google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap')
                 ->style('style', get_stylesheet_uri())
@@ -31,13 +32,15 @@ final class CodersThemeBase extends CodersTheme {
                     'nonce' => wp_create_nonce('coders-nonce'),
                 ));
         
-        $this->sidebar('bottom-bar',array('name'=>__('Bottom Bar','coder_themes')))
-                ->sidebar('top-bar',array('name'=>__('Top Bar','coder_themes')))
-                ->sidebar('side-bar',array('name'=>__('Side Bar','coder_themes')))
-                ->sidebar('footer-1',array('name'=>__('Footer 1','coder_themes')))
-                ->sidebar('footer-2',array('name'=>__('Footer 2','coder_themes')))
-                ->sidebar('footer-3',array('name'=>__('Footer 3','coder_themes')))
-                ->sidebar('footer-4',array('name'=>__('Footer 4','coder_themes')));
+        $this->sidebar('blog',__('Sidebar','coder_themes'))
+                ->sidebar('error',__('Error Bar','coder_themes'))
+                ->sidebar('bottom',__('Bottom Bar','coder_themes'))
+                ->sidebar('top',__('Top Bar','coder_themes'))
+                ->sidebar('header',__('Header Bar','coder_themes'))
+                ->sidebar('footer-a',__('Footer A','coder_themes'))
+                ->sidebar('footer-b',__('Footer B','coder_themes'))
+                ->sidebar('footer-c',__('Footer C','coder_themes'))
+                ->sidebar('footer-d',__('Footer D','coder_themes'));
 
         
         //theme custom settings
