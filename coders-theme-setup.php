@@ -37,10 +37,10 @@ final class CodersThemeBase extends CodersTheme {
                 ->sidebar('bottom',__('Bottom Bar','coder_themes'))
                 ->sidebar('top',__('Top Bar','coder_themes'))
                 ->sidebar('header',__('Header Bar','coder_themes'))
-                ->sidebar('footer-a',__('Footer A','coder_themes'))
-                ->sidebar('footer-b',__('Footer B','coder_themes'))
-                ->sidebar('footer-c',__('Footer C','coder_themes'))
-                ->sidebar('footer-d',__('Footer D','coder_themes'));
+                ->sidebar('footer-1',__('Footer A','coder_themes'))
+                ->sidebar('footer-2',__('Footer B','coder_themes'))
+                ->sidebar('footer-3',__('Footer C','coder_themes'))
+                ->sidebar('footer-4',__('Footer D','coder_themes'));
 
         
         //theme custom settings
@@ -60,6 +60,53 @@ final class CodersThemeBase extends CodersTheme {
 
         parent::__construct();
     }
+    
+    protected final function wrap(): array {
+        return array('wrap','clearfix');
+    }
+    
+    protected final function themeWrappers(): array {
+        return array(
+            'top-bar','header-main','content','footer-widgets','bottom'
+        );
+    }
+
+    protected final function themeLayout(): array {
+        return array(
+            'header' => array(
+                'top-bar' => array(
+                    'block-left' => 'top-sidebar',
+                    'block-right' => 'top-menu',
+                ),
+                'header-main' => array(
+                    'block-left' => 'site-logo',
+                    'block-right' => 'main-menu'
+                ),
+            ),
+            'content',
+            'footer' => array(
+                'footer-widgets',
+                'bottom' => array(
+                    'block-left'=>'bottom-sidebar',
+                    'block-right'=>'bottom-menu'
+                )
+            ),
+        );
+
+
+        return parent::themeLayout();
+    }
+
+    protected final function renderFooterWidgetsBlock(){
+        $areas = $this->footer_widgets;
+        for($i = 0 ; $i < $areas ; $i++){
+            printf('<div class="widget-area sidebar-%s">',($i+1));
+            $this->showSidebar('footer-'.$i);
+            print('</div>');
+        }
+    }
+    
+
     /**
      * @return boolean
      */
