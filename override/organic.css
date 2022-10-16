@@ -1,0 +1,24 @@
+/******
+*
+*
+*/
+body,html{
+    /*background-color: #5a9afa;*/
+    /*font-family: Open Sans;*/
+    font-family: Roboto;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #2a2a2a;
+}
+.container.solid{ background-color: #9a73ae; }
+a{
+    color: #722dac;
+}
+a:hover,a:active,a:focus{
+    color: #a943ff;
+}
+
+#site-header,#site-footer{
+    background-color: #af95d3;
+    color: #ffffff;
+}
