@@ -10,7 +10,10 @@ body,html{
     letter-spacing: 1px;
     color: #2a2a2a;
 }
-.container.solid{ background-color: #50bf5a; }
+.container.solid{
+    background-color: #50bf5a;
+    background: linear-gradient(70deg, rgb(210, 255, 31) 0.00%, rgb(123, 194, 85) 38.62%, rgb(21, 165, 179) 68.10%, rgb(89, 117, 201) 100.00%);
+}
 a{
     color: #aaba52;
 }
@@ -20,5 +23,6 @@ a:hover,a:active,a:focus{
 
 #site-header,#site-footer{
     background-color: #50bf5a;
+    background: linear-gradient(70deg, rgb(210, 255, 31) 0.00%, rgb(123, 194, 85) 38.62%, rgb(21, 165, 179) 68.10%, rgb(89, 117, 201) 100.00%);
     color: #ffffff;
 }

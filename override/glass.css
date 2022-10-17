@@ -9,16 +9,32 @@ body,html{
     font-weight: 400;
     letter-spacing: 1px;
     color: #2a2a2a;
+
+    background-color: #fdb300;
+    background: linear-gradient(132deg, rgb(34, 181, 254) 0.00%, rgb(255, 186, 214) 100.00%);
 }
-.container.solid{ background-color: #fdb300; }
+.container.solid{
+    background-color: rgba(255,255,255,0.25);
+    background: linear-gradient(132deg, rgba(255,255,255,0.25) 0.00%, rgba(220, 210, 255,0.55) 100.00%);
+    border-top: 1px solid rgba(255,255,255,0.65);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    box-sizing: border-box;
+}
 a{
     color: #ef6ca6;
 }
 a:hover,a:active,a:focus{
     color: #ff0072;
 }
-
 #site-header,#site-footer{
     background-color: #ef6ca6;
+    background: linear-gradient(132deg, rgba(255,255,255,0.25) 0.00%, rgba(220, 210, 255,0.55) 100.00%);
+    box-sizing: border-box;
     color: #ffffff;
+}
+#site-footer{ border-top: 1px solid rgba(255,255,255,0.65); }
+#site-header{ border-bottom: 1px solid rgba(0,0,0,0.15); }
+#site-footer > .bottom-bar,
+#site-header > .top-bar{
+    background-color: rgba(255,255,255,0.25);
 }

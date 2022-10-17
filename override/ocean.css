@@ -10,7 +10,10 @@ body,html{
     letter-spacing: 1px;
     color: #005a87;
 }
-.container.solid{ background-color: #60ade8; }
+.container.solid{
+    background-color: #60ade8;
+    background: linear-gradient(132deg, rgb(2, 108, 223) 0.00%, rgb(0, 246, 253) 100.00%);
+}
 a{
     color: #00b9eb;
 }
@@ -20,5 +23,6 @@ a:hover,a:active,a:focus{
 
 #site-header,#site-footer{
     background-color: #60ade8;
+    background: linear-gradient(132deg, rgb(2, 108, 223) 0.00%, rgb(0, 246, 253) 100.00%);
     color: #ffffff;
 }

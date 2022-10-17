@@ -67,13 +67,16 @@ final class CodersThemeBase extends CodersTheme {
     
     protected final function themeWrappers(): array {
         return array(
-            'top-bar','header-main','content','footer-widgets','bottom'
+            'top-bar','header-main','site-content','footer-widgets','bottom-bar'
         );
+    }
+    protected final function themeIds(): array {
+        return array('site-main','site-header','site-content','site-footer');
     }
 
     protected final function themeLayout(): array {
         return array(
-            'header' => array(
+            'site-header' => array(
                 'top-bar' => array(
                     'block-left' => 'top-sidebar',
                     'block-right' => 'top-menu',
@@ -83,10 +86,10 @@ final class CodersThemeBase extends CodersTheme {
                     'block-right' => 'main-menu'
                 ),
             ),
-            'content',
-            'footer' => array(
+            'site-content' => 'content',
+            'site-footer' => array(
                 'footer-widgets',
-                'bottom' => array(
+                'bottom-bar' => array(
                     'block-left'=>'bottom-sidebar',
                     'block-right'=>'bottom-menu'
                 )
@@ -101,11 +104,14 @@ final class CodersThemeBase extends CodersTheme {
      */
     protected final function renderFooterWidgetsBlock(){
         $areas = $this->footer_widgets;
+        $col = 12 / ($areas > 0 ? $areas : 1);
+        print '<div class="wrap clearfix">';
         for($i = 0 ; $i < $areas ; $i++){
-            printf('<div class="widget-area sidebar-%s">',($i+1));
+            printf('<div class="widget-area sidebar-%s container col-%s">',($i+1),$col);
             $this->showSidebar('footer-'.$i);
             print('</div>');
         }
+        print '</div>';
     }
     
 
