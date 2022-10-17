@@ -20,7 +20,7 @@ final class CodersThemeBase extends CodersTheme {
                 ->themeSupport('custom-logo', $this->logoSetup())
                 ->menu('top', __('Top Menu', 'coder_themes'))
                 ->menu('main', __('Main Menu', 'coder_themes'))
-                ->menu('legal', __('Legal Menu', 'coder_themes'))
+                ->menu('bottom', __('Bottom Menu', 'coder_themes'))
                 ->menu('social', __('Social Menu', 'coder_themes'))
                 ->style('google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
                 //->style('google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap')
@@ -71,7 +71,7 @@ final class CodersThemeBase extends CodersTheme {
         );
     }
     protected final function themeIds(): array {
-        return array('site-main','site-header','site-content','site-footer');
+        return array('site-main','site-header','site-menu','site-content','site-footer');
     }
 
     protected final function themeLayout(): array {
@@ -82,8 +82,8 @@ final class CodersThemeBase extends CodersTheme {
                     'block-right' => 'top-menu',
                 ),
                 'header-main' => array(
-                    'block-left' => 'site-logo',
-                    'block-right' => 'main-menu'
+                    'site-logo',
+                    'site-menu' => 'main-menu'
                 ),
             ),
             'site-content' => 'content',
@@ -91,7 +91,7 @@ final class CodersThemeBase extends CodersTheme {
                 'footer-widgets',
                 'bottom-bar' => array(
                     'block-left'=>'bottom-sidebar',
-                    'block-right'=>'bottom-menu'
+                    'block-right'=>'bottom-menu',
                 )
             ),
         );
@@ -105,11 +105,11 @@ final class CodersThemeBase extends CodersTheme {
     protected final function renderFooterWidgetsBlock(){
         $areas = $this->footer_widgets;
         $col = 12 / ($areas > 0 ? $areas : 1);
-        print '<div class="wrap clearfix">';
-        for($i = 0 ; $i < $areas ; $i++){
-            printf('<div class="widget-area sidebar-%s container col-%s">',($i+1),$col);
-            $this->showSidebar('footer-'.$i);
-            print('</div>');
+        print '<div class="wrap clearfix container footer-widgets">';
+        for($i = 1 ; $i <= $areas ; $i++){
+            printf('<div class="widget-area sidebar-%s container col-%s">',$i,$col);
+            $this->showSidebar( 'footer-' . $i );
+            print('<!-- footer-widget-area --></div>');
         }
         print '</div>';
     }
