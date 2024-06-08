@@ -1,7 +1,7 @@
 <?php defined('ABSPATH') or die;
 
-if (class_exists('CodersThemeBase')) {
-    CodersThemeBase::instance()->display();
+if (class_exists('CoderThemeBase')) {
+    CoderThemeBase::instance()->display();
 }
 else{
     print ':(';

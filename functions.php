@@ -1,7 +1,7 @@
 <?php defined('ABSPATH') or die;
 
-if (class_exists('CodersTheme')) {
-    require_once sprintf('%s/coders-theme-setup.php',__DIR__);
+if (class_exists('CoderThemes')) {
+    require_once sprintf('%s/theme-setup.php',__DIR__);
 }
 
 add_action('wp_ajax_coders_list_request', function() {
